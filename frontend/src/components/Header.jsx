@@ -1,14 +1,12 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { FiSearch, FiBell, FiPlus, FiMenu } from "react-icons/fi";
+import React from "react";
+import { FiSearch, FiBell, FiPlus } from "react-icons/fi";
 import avatar from "../assets/images/avatar.png";
 
 const Header = () => {
   return (
     <div className="w-full bg-blue-50 shadow-md sticky top-0 left-0 z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
-
-        {/* logo */}
+        {/* Logo */}
         <div className="flex items-center">
           <div className="font-bold text-xl">
             <span className="text-cyan-300 ml-11">Health</span>
@@ -18,92 +16,32 @@ const Header = () => {
 
         {/* Search Bar */}
         <div className="hidden relative md:flex justify-center">
-          <FiSearch className="absolute left-1 top-2" size={16} />
+          <FiSearch className="absolute left-3 top-3" size={16} />
           <input
             type="text"
             placeholder="Search..."
-            className="min-w-sm h-9 border-2 border-gray-400 text-sm md:text-base font-semibold rounded-lg pl-6 outline-none"
+            className="min-w-[400px] h-9 border-2 border-gray-400 text-sm md:text-base font-semibold rounded-lg pl-9 pr-9 outline-none"
           />
-          <FiBell className="absolute right-1 top-2" size={16} />
+          <FiBell className="absolute right-3 top-3" size={16} />
         </div>
 
-        {/* profile */}
-        <UserActions>
-          <UserProfile>
-            <ProfileImage src={avatar} alt="User" />
-            <ProfileName>Om Shinde</ProfileName>
-          </UserProfile>
-          <AddButton>
+        {/* Profile Section */}
+        <div className="flex items-center gap-4 sm:gap-3">
+          <div className="flex items-center gap-2 cursor-pointer">
+            <img
+              src={avatar}
+              alt="User"
+              className="w-9 h-9 rounded-full object-cover sm:w-10 sm:h-10"
+            />
+            <span className="font-medium hidden sm:inline">Om Shinde</span>
+          </div>
+          <button className="bg-gray-800 text-white border-none rounded-lg p-2 flex items-center justify-center cursor-pointer transition-colors hover:bg-cyan-300 sm:p-2 sm:min-w-[30px] sm:min-h-[30px]">
             <FiPlus />
-          </AddButton>
-        </UserActions>
-        
+          </button>
+        </div>
       </div>
     </div>
   );
 };
-
-// `;
-
-const UserActions = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-
-  @media (max-width: 767px) {
-    gap: 0.75rem;
-    margin-left: auto;
-  }
-`;
-
-const UserProfile = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-`;
-
-const ProfileImage = styled.img`
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  object-fit: cover;
-
-  @media (max-width: 767px) {
-    width: 40px;
-    height: 40px;
-  }
-`;
-
-const ProfileName = styled.span`
-  font-weight: 500;
-
-  @media (max-width: 480px) {
-    display: none;
-  }
-`;
-
-const AddButton = styled.button`
-  background-color: ${({ theme }) => theme.colors.dark};
-  color: ${({ theme }) => theme.colors.white};
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background-color 0.2s;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.secondary};
-  }
-
-  @media (max-width: 767px) {
-    padding: 0.5rem;
-    min-width: 30px;
-    min-height: 30px;
-  }
-`;
 
 export default Header;

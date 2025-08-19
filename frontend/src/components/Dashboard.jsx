@@ -1,86 +1,22 @@
 import React from "react";
-import styled from "styled-components";
 import AnatomySection from "./AnatomySection";
 import CalendarView from "./CalendarView";
 import UpcomingSchedule from "./UpcomingSchedule";
 
 const Dashboard = () => {
   return (
-    <DashboardContainer>
-      <ContentGrid>
-        <LeftColumn>
+    <main className="flex-1 p-4 bg-gray-50 overflow-y-auto min-h-[calc(100vh-60px)] md:p-5 lg:p-6">
+      <div className="flex flex-col gap-4 w-full max-w-[1800px] mx-auto lg:grid lg:grid-cols-[1fr_380px] lg:gap-6 xl:grid-cols-[1fr_450px] xl:gap-8">
+        <div className="flex flex-col gap-4 w-full md:gap-5 lg:gap-6">
           <AnatomySection />
-        </LeftColumn>
-        <RightColumn>
+        </div>
+        <div className="flex flex-col gap-4 w-full md:gap-5">
           <CalendarView />
           <UpcomingSchedule />
-        </RightColumn>
-      </ContentGrid>
-    </DashboardContainer>
+        </div>
+      </div>
+    </main>
   );
 };
-
-// Styled Components
-const DashboardContainer = styled.main`
-  flex: 1;
-  padding: 1rem;
-  background-color: ${({ theme }) => theme.colors.lightGray};
-  overflow-y: auto;
-  min-height: calc(100vh - 60px); /* Adjust based on your header height */
-
-  @media (min-width: 768px) {
-    padding: 1.25rem;
-  }
-
-  @media (min-width: 1024px) {
-    padding: 1.5rem;
-  }
-`;
-
-const ContentGrid = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 100%;
-  max-width: 1800px;
-  margin: 0 auto;
-
-  @media (min-width: 1024px) {
-    display: grid;
-    grid-template-columns: 1fr 380px;
-    gap: 1.5rem;
-  }
-
-  @media (min-width: 1280px) {
-    grid-template-columns: 1fr 450px;
-    gap: 2rem;
-  }
-`;
-
-const LeftColumn = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 100%;
-
-  @media (min-width: 768px) {
-    gap: 1.25rem;
-  }
-
-  @media (min-width: 1024px) {
-    gap: 1.5rem;
-  }
-`;
-
-const RightColumn = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 100%;
-
-  @media (min-width: 768px) {
-    gap: 1.25rem;
-  }
-`;
 
 export default Dashboard;
