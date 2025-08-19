@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import Dashboard from "./components/Dashboard";
 import { GlobalStyles } from "./styles/global";
+import "./App.css";
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = React.useState(false);
@@ -17,7 +18,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <AppContainer>
-        <Header toggleSidebar={toggleSidebar} />
+        <Header />
         <MainContent>
           <Sidebar isOpen={sidebarOpen} onClose={toggleSidebar} />
           <DashboardContent>
@@ -41,7 +42,7 @@ const AppContainer = styled.div`
 const MainContent = styled.div`
   display: flex;
   flex: 1;
-  min-height: 0; 
+  min-height: 0;
 `;
 
 const DashboardContent = styled.div`
