@@ -41,7 +41,7 @@ const Sidebar = () => {
         <button
           id="mobile-menu-btn"
           onClick={() => setIsMobileOpen(!isMobileOpen)}
-          className="fixed z-[1001] border-2 border-gray-400 w-9 h-9 rounded-full flex justify-center items-center bg-white top-5 left-2"
+          className="fixed z-[1001] border-2 border-gray-400 w-9 h-9 rounded-full flex justify-center items-center bg-white top-4 left-2"
           aria-label="Toggle menu"
         >
           {isMobileOpen ? (
@@ -56,6 +56,7 @@ const Sidebar = () => {
         id="sidebar-container"
         className={`
           w-[250px] 
+          h-full
           bg-[#f6faff] 
           shadow-sm 
           p-6 
@@ -78,12 +79,12 @@ const Sidebar = () => {
         `}
       >
         <h3 className="relative text-center text-xl font-bold">General</h3>
-        <div className="p-4 md:p-5 text-center">
+        <div className="p-4 md:px-5 md:py-0 text-center">
           {navItems.map((item, index) => (
             <div
               key={index}
               onClick={() => isMobileView && setIsMobileOpen(false)}
-              className="flex items-center p-2 my-3 mx-3 md:my-2 gap-3 hover:bg-blue-100 rounded-lg cursor-pointer text-lg md:text-base"
+              className="flex items-center p-2 my-3 mx-3 md:my-2 gap-3 hover:bg-blue-100 rounded-lg cursor-pointer text-lg md:text-[16px]"
             >
               <item.icon aria-hidden="true" />
               <span>{item.label}</span>
